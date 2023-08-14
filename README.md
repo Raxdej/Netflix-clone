@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# Netflix-clone Udemy proyect
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a project that made in a Udemy course to learn about how to use react components and put in practice everything that learn about JSX, useState hook, useRef, JSON, etc.
 
-## Available Scripts
+![](./src/img/SS_1.PNG)
 
-In the project directory, you can run:
+The packages used in this project was:
+- Styled-components
+- react-icons
+- axios
 
-### `npm start`
+## Pages
+---
+![](./src/img/SS_2.PNG)
+---
+![](./src/img/SS_3.PNG)
+---
+![](./src/img/SS_4.PNG)
+---
+![](./src/img/SS_5.PNG)
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Install APIs
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Also, use a API from [The Movie Data Base](https://www.themoviedb.org) to get the recent releases and use Firebase to get a user validation to enter in the site. 
 
-### `npm test`
+To install correctly the page you will need the utils to get the conections from Firebase and TMDB.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+```js title="firebase-config.js"
+// ./src/utils/firebase-config.js
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import {getAuth} from 'firebase/auth';
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "Insert-API-Key",
+  authDomain: "Insert-Domain",
+  projectId: "Insert-projectId",
+  storageBucket: "Insert-StorageBucket",
+  messagingSenderId: "ID",
+  appId: "AppID",
+  measurementId: "Insert"
+};
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
-### `npm run eject`
+export const firebaseAuth = getAuth(app);
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```js title="constant.js"
+// ./src/utils/constant.js
+export const MY_API_KEY = "MyApiKey";
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+export const TMDB_BASE_URL = "https://api.themoviedb.org/3";
+```
